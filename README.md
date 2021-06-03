@@ -17,6 +17,9 @@ Based on this a forecast is developed which
 - Two weeks after the second dose an effect of 95 % (Moderna and Biontech) and 82 % (Astra Zeneca) is assumed.
 - The deliveries of one week will be vaccinated one week later.
 - The vaccine stocks of the country do stay constant.
+- If deliveries in the week before are smaller then the assumed 2nd dose, then the later is reduced to the amount delivered. 
+Since this reduction is not yet placed in the next buckets the number of persons with 2nd dose is predicted to low while the one with just one dose is to low.
+- Cross vaccinations (e.g. 1st Astra Zeneca then Biontech) are not taken into account.
 
 # How to
 
