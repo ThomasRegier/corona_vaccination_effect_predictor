@@ -1,9 +1,8 @@
 import pandas as pd
-
+from assumptions import population, risk_reductions
 
 vacs = ['biontech','moderna','astrazeneca','johnson']
 vac_list = [f(vac) for vac in vacs for f in (lambda x: x + '_1',lambda x: x + '_2')]
-risk_reductions = [0.82,0.13,0.7,0.25,0.76,0.06,0.66,0]
 
 """Astra
 Thus, the studies in the UK, Brazil and South Africa showed the efficacy of the vaccine at the level of 76% after the first dose with protection maintained to the second dose. With an interval of 12 weeks between them and more, the efficacy of the vaccine increases up to 82%.
@@ -13,7 +12,7 @@ https://112.international/society/astrazeneca-vaccine-is-effective-after-first-d
 
 risk_red_1st = [risk_reductions[x-1] for x in [1,3,5,7]]
 risk_red_total = [risk_reductions[x-1] + risk_reductions[x] for x in [1,3,5,7]]
-population = 83100000
+
 
 risk_reduction_dict = {}
 for i, vac in enumerate(vac_list):

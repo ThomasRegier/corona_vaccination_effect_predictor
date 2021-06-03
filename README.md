@@ -23,6 +23,14 @@ Based on this a forecast is developed which
 - Start and run the Notebook Corona-Vaccination-Calculator.
 - Several information will be presented to you in table or text form. (graphs shall follow)
 
+# Files
+
+- Corona-Vaccination-Calculator.ipynb: main calculations.
+- tools.py: functions which are helpful not just in this repository.
+- corony.py: specific analysis-functions for this notebook.
+- README.md: as usual
+- .gitignore: as usual
+
 # Status
 
 - Currently the download and the data preparation is just prepared for the situation in Germany.
