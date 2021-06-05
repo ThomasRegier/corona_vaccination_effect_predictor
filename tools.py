@@ -4,10 +4,11 @@ import filecmp
 import datetime as dt
 
 def get_files_from_dir(directory, sub_dir_start = len(os.path.dirname(os.getcwd()))):
-    """ This function creates a list of file-paths to all files in a given directory
+    """ This function creates a list of file-paths to all files in a given directory.
 
     :param directory: (str) path to dictionary
-    :param sub_dir_start: (int) the amount of letters at the beginning of path-string excluded from the print output
+    :param sub_dir_start: (int) the amount of letters at the beginning of path-string excluded from the print output. \
+    (If the path is very long or for privacy issues if output is shared. Otherwise sub_dir_start = 0 might be set.)
     :return: a list of file-paths to all files in a given directory
     """
     if os.path.isdir(directory):
@@ -19,6 +20,14 @@ def get_files_from_dir(directory, sub_dir_start = len(os.path.dirname(os.getcwd(
         print(directory[sub_dir_start:], " is not a directory.")
 
 def download_if_new(url,data_folder):
+    """ Downloads a file from an url. If executed more often it compares the current file with the last local version, \
+     and saves only new versions permanently. The path to the latest updated version is returned.
+
+    :param url: (str) complete url of the file to be downloaded
+    :param data_folder: (str) folder to save the file
+    :return: (str)  path to the local version of the latest new version of the file
+    """
+
     file_name = os.path.basename(url)
     file_path = os.path.join(data_folder,dt.datetime.now().strftime('%y%m%d %H%M%S')+'_'+file_name)
     file_paths = get_files_from_dir(data_folder)

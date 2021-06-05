@@ -39,6 +39,9 @@ def calc_effects(df,shift = 14):
     df['rel_all_full'] = df['all_full'] / population
     df['R_to_1'] = 1 / (1 - df['rel_net_effect'])
     df['R_to_1_14'] = 1 / (1 - df['rel_net_effect_after_14'])
+    df['new_1st'] = df['rel_all_1'] - df['rel_all_1'].shift(1)
+    df['new_full'] = df['rel_all_full'] - df['rel_all_full'].shift(1)
+    df['new_total'] = df['new_full'] + df['new_1st']
     return df
 
 

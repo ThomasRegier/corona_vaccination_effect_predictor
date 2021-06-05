@@ -49,3 +49,10 @@ The relevant results from studies on which the assumptions are based and the ass
 Thus, the studies in the UK, Brazil and South Africa showed the efficacy of the vaccine at the level of 76% after the first dose with protection maintained to the second dose. With an interval of 12 weeks between them and more, the efficacy of the vaccine increases up to 82%.
 the studies confirmed that AstraZeneca vaccine reduces asymptomatic transmission of the virus by 67% after the first dose and by 50% after the second
 https://112.international/society/astrazeneca-vaccine-is-effective-after-first-dose-58667.html
+
+### Sinopharm
+14 days post 2nd dose: 78.1%
+Peer-reviewed results published in JAMA of Phase III trials in United Arab Emirates and Bahrain showed BBIBP-CorV 78.1% effective against symptomatic cases and 100% against severe cases (21 cases in vaccinated group vs. 95 cases in placebo group).
+
+"This prespecified interim analysis of a randomized clinical trial included 40 382 participants who received at least 1 dose of a 2-dose inactivated vaccine series developed from either SARS-CoV-2 WIV04 (5 µg/dose) or HB02 (4 µg/dose) strains or an aluminum hydroxide–only control, with a primary end point of the incidence of symptomatic COVID-19 at least 14 days after the second injection. The efficacy for the 2 vaccines, compared with an aluminum hydroxide–only control, was 72.8% in the WIV04 group and 78.1% in the HB02 group; both comparisons were statistically significant."
+https://jamanetwork.com/journals/jama/fullarticle/2780562
