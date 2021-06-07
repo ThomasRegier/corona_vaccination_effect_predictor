@@ -1,14 +1,9 @@
 import pandas as pd
-from assumptions import population, risk_reductions
+from assumptions import population, risk_reductions, vacs
 
-vacs = ['biontech','moderna','astrazeneca','johnson']
+
 vac_list = [f(vac) for vac in vacs for f in (lambda x: x + '_1',lambda x: x + '_2')]
 
-"""Astra
-Thus, the studies in the UK, Brazil and South Africa showed the efficacy of the vaccine at the level of 76% after the first dose with protection maintained to the second dose. With an interval of 12 weeks between them and more, the efficacy of the vaccine increases up to 82%.
-the studies confirmed that AstraZeneca vaccine reduces asymptomatic transmission of the virus by 67% after the first dose and by 50% after the second
-https://112.international/society/astrazeneca-vaccine-is-effective-after-first-dose-58667.html
-"""
 
 risk_red_1st = [risk_reductions[x-1] for x in [1,3,5,7]]
 risk_red_total = [risk_reductions[x-1] + risk_reductions[x] for x in [1,3,5,7]]
@@ -41,7 +36,10 @@ def calc_effects(df,shift = 14):
     df['R_to_1_14'] = 1 / (1 - df['rel_net_effect_after_14'])
     df['new_1st'] = df['rel_all_1'] - df['rel_all_1'].shift(1)
     df['new_full'] = df['rel_all_full'] - df['rel_all_full'].shift(1)
-    df['new_total'] = df['new_full'] + df['new_1st']
+    try:
+        df['new_total'] = df['new_full'] + df['new_1st'] - (df['johnson_1_cum'] - df['johnson_1_cum'].shift(1))/population
+    except:
+        df['new_total'] = df['new_full'] + df['new_1st'] - df['johnson_1']/population
     return df
 
 
