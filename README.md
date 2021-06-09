@@ -1,10 +1,24 @@
 # Readme
-
 This repository has the functionality to download current vaccination data and data on planned vaccine deliveries for Germany.
 
 Based on this a forecast is developed which 
 1. predicts when, how many 1st or 2nd doses of the different vaccines are vaccinated
 2. when which effect is reached on the herd immunity
+
+# Result examples
+
+To demonstrate examples of the output have a look on these images which are a direct output of the Corona-Vaccination-Calculator.ipynb 
+Notebook.
+
+![vaccinations_per_week](corona_results/vaccinations_per_week.png)
+
+![vaccinations_total](corona_results/vaccinations_total.png)
+
+As well as the following text:
+
+![result_text](corona_results/result_text.jpg)
+
+![text](test.jpg)
 
 # Assumptions
 

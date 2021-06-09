@@ -1,5 +1,5 @@
 # Weeks between first and 2nd dose. Assumption based on 2nd-analysis
-week_delta = {'biontech':5, 'moderna':5,'astrazeneca':12}
+week_delta = {'biontech':6, 'moderna':6,'astrazeneca':13}
 
 # risk reduction - the list entries do stand for:
 # [Biontech after 1st dose, additional effect after second dose, \
