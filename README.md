@@ -14,11 +14,10 @@ Notebook.
 
 ![vaccinations_total](corona_results/vaccinations_total.png)
 
-As well as the following text:
+The following text as well is an example output of the corona-jupyter-notebook just mentioned:
 
 ![result_text](corona_results/result_text.jpg)
 
-![text](test.jpg)
 
 # Assumptions
 
