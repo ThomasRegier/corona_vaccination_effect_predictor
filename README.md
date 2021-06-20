@@ -27,7 +27,7 @@ The following text as well is an example output of the corona-jupyter-notebook j
   "2nd analysis - how much time between the first and the second dose per vaccine".)
 - Currently the following effects are assumed to take place 14 days after the first dose of Biontech, Moderna, Astra Zeneca 
   and Johnson & Johnson: 82 %, 70 %, 76 % and 66 %.
-- Two weeks after the second dose an effect of 95 % (Moderna and Biontech) and 82 % (Astra Zeneca) is assumed.
+- Two weeks after the second dose an effect of 95 % (Biontech), 94 % (Moderna) and 82 % (Astra Zeneca) is assumed.
 - The deliveries of one week will be vaccinated one week later.
 - The vaccine stocks of the country do stay constant.
 - If deliveries in the week before are smaller then the assumed 2nd dose, then the later is reduced to the amount delivered. 

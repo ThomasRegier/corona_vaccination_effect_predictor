@@ -4,7 +4,7 @@ Based on the integrated implementation of how many people are able (in this run 
  Based on this percentage and the assumed vaccine deliveries the model generates the following 
  forecast: 
  
- At the 01.08.21 everyone who is able and willing will have his or her 1st vaccination. 
- At the 12.09.21 everyone who is able and willing will have his/her full vaccination. 
- At the 26.09.21 the maximum relative immunity is reached with 0.735. 
- Simultanously at the 26.09.21 a R-value of 3.78 is reduced to 1.
+ At the 08.08.21 everyone who is able and willing will have his or her 1st vaccination. 
+ At the 19.09.21 everyone who is able and willing will have his/her full vaccination. 
+ At the 03.10.21 the maximum relative immunity is reached with 0.726. 
+ Simultanously at the 03.10.21 a R-value of 3.65 is reduced to 1.

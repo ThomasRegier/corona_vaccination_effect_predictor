@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from assumptions import population, risk_reductions, vacs, week_delta
+from assumptions import population, risk_reductions, vacs, week_delta, risk_reductions_cross
 
 
 vac_list = [f(vac) for vac in vacs for f in (lambda x: x + '_1',lambda x: x + '_2')]
@@ -20,6 +20,9 @@ vac_list_2_cum = [vac+'_2_cum' for vac in vacs]
 def calc_effects(df,shift = 14):
     df['johnson_2_cum'] = df['johnson_1_cum']
     df['net_effect'] = df[vac_list_cum].shift(shift).dot(risk_reductions)
+    if 'astra_biontech_2_cum' in df.columns:
+        cross_effect = df[['astra_biontech_2_cum','astra_moderna_2_cum']].shift(shift).dot(risk_reductions_cross)
+        df['net_effect'] = df['net_effect'] +  cross_effect
     df['net_effect_2nd'] = df[vac_list_2_cum].shift(shift).dot(risk_red_total) + (df[vac_list_2_cum].shift(0) - df[vac_list_2_cum].shift(shift)).dot(risk_red_1st)
     df['rel_net_effect'] = df['net_effect'] / population
     #df['rel_net_effect_2nd'] = df['net_effect'] / population
@@ -30,7 +33,10 @@ def calc_effects(df,shift = 14):
                                          + df[vac + '_2_cum'] * risk_reduction_dict[vac + '_2']) \
                                         / df['net_effect_after_14']
     if 'rel_all_1' not in df.columns:
-        df['all_full'] = df[[vac + '_2_cum' for vac in vacs]].sum(axis=1)
+        if 'astra_biontech_2_cum' in df.columns:
+            df['all_full'] = df[[vac + '_2_cum' for vac in vacs] + ['astra_biontech_2_cum','astra_moderna_2_cum']].sum(axis=1)
+        else:
+            df['all_full'] = df[[vac + '_2_cum' for vac in vacs]].sum(axis=1)
         df['all_1'] = df[[vac + '_1_cum' for vac in vacs]].sum(axis=1)
     else:
         df['all_full'][df['all_full'].isin([0, np.NaN])] = df[[vac + '_2_cum' for vac in vacs]].sum(axis=1)
@@ -61,4 +67,6 @@ def vac_dist_to_1_2(df_week, i, open_1st, open_full, vac):
     open_1st = open_1st - vac_1
     df_week.at[i, 'open_1st'] = open_1st
     #print('open_full, vac_full',open_full, vac_full)
-    return df_week, open_1st, open_full
+    rest = df_week.iloc[i-1][vac] - vac_2 - vac_1
+    #print(f'Rest of {vac} in index {i}: {rest}')
+    return df_week, open_1st, open_full, rest

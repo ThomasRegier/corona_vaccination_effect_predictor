@@ -2,6 +2,7 @@ import os
 import urllib
 import filecmp
 import datetime as dt
+import pandas as pd
 
 def get_files_from_dir(directory, sub_dir_start = len(os.path.dirname(os.getcwd()))):
     """ This function creates a list of file-paths to all files in a given directory.
@@ -19,7 +20,7 @@ def get_files_from_dir(directory, sub_dir_start = len(os.path.dirname(os.getcwd(
     else:
         print(directory[sub_dir_start:], " is not a directory.")
 
-def download_if_new(url,data_folder):
+def download_if_new(url,data_folder,n_th_last_file=0):
     """ Downloads a file from an url. If executed more often it compares the current file with the last local version, \
      and saves only new versions permanently. The path to the latest updated version is returned.
 
@@ -43,4 +44,13 @@ def download_if_new(url,data_folder):
             print(f'The-file {file_name} is updated - the update file is added to the data-folder')
     else:
         print('The file is downloaded. No previous version existed in the data-folder.')
+    if n_th_last_file > 0:
+        file_path = file_paths_relevant[-n_th_last_file]
     return file_path
+
+def pd_set_options():
+    pd.set_option('display.max_rows', 1000)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', None)
+    pd.set_option('display.max_colwidth', None)
+    pd.set_option('display.float_format', '{:.4f}'.format)
