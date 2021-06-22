@@ -53,4 +53,4 @@ def pd_set_options():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
     pd.set_option('display.max_colwidth', None)
-    pd.set_option('display.float_format', '{:.4f}'.format)
+    pd.set_option('display.float_format', '{:.3f}'.format)
