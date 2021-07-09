@@ -7,4 +7,4 @@ Based on the integrated implementation of how many people are able (in this run 
  At the 01.08.21 everyone who is able and willing will have his or her 1st vaccination. 
  At the 12.09.21 everyone who is able and willing will have his/her full vaccination. 
  At the 26.09.21 the maximum relative immunity is reached with 0.724. 
- Simultanously at the 26.09.21 a R-value of 3.617 is reduced to 1.
+ Simultanously at the 26.09.21 a R-value of 3.619 is reduced to 1.

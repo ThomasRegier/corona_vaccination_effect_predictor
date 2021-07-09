@@ -3,6 +3,8 @@ import urllib
 import filecmp
 import datetime as dt
 import pandas as pd
+# pip install GitPython
+import git
 
 def get_files_from_dir(directory, sub_dir_start = len(os.path.dirname(os.getcwd()))):
     """ This function creates a list of file-paths to all files in a given directory.
@@ -54,3 +56,13 @@ def pd_set_options():
     pd.set_option('display.width', None)
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.float_format', '{:.3f}'.format)
+
+def get_git_root(path):
+    git_repo = git.Repo(path, search_parent_directories=True)
+    git_root = git_repo.git.rev_parse("--show-toplevel")
+    return git_root
+
+root_dir_repository = get_git_root(os.getcwd())
+sub_dir_start = len(os.path.dirname(root_dir_repository))
+
+
